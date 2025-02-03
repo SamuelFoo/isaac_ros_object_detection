@@ -101,7 +101,7 @@ def generate_launch_description():
             'attach_to_shared_component_container': 'True',
             'component_container_name': 'tensor_rt_container',
             'dnn_image_encoder_namespace': 'yolov8_encoder',
-            'image_input_topic': '/image',
+            'image_input_topic': '/image_raw',
             'camera_info_input_topic': '/camera_info',
             'tensor_output_topic': '/tensor_pub',
         }.items(),
