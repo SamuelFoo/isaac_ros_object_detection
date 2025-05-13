@@ -1,6 +1,10 @@
 # Ignore all pycache files
 **/__pycache__/**
 
+# Ignore model files
+*.pt
+*.onnx
+
 # Ignore TensorRT plan files
 *.plan
 *.engine
