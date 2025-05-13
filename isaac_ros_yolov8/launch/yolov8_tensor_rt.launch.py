@@ -62,6 +62,22 @@ def generate_launch_description():
             'force_engine_update',
             default_value='False',
             description='Whether TensorRT should update the TensorRT engine file or not'),
+        DeclareLaunchArgument(
+            'image_input_topic',
+            default_value='/image_raw',
+            description='Input image topic'),
+        DeclareLaunchArgument(
+            'camera_info_input_topic',
+            default_value='/camera_info',
+            description='Input camera_info topic'),
+        DeclareLaunchArgument(
+            'num_classes',
+            default_value='80',
+            description='Number of classes for YOLOv8 model'),
+        DeclareLaunchArgument(
+            'out_dims',
+            default_value='8400',
+            description='Output dimensions for YOLOv8 model'),
     ]
 
     # DNN Image Encoder parameters
@@ -71,6 +87,8 @@ def generate_launch_description():
     network_image_height = LaunchConfiguration('network_image_height')
     image_mean = LaunchConfiguration('image_mean')
     image_stddev = LaunchConfiguration('image_stddev')
+    image_input_topic = LaunchConfiguration('image_input_topic')
+    camera_info_input_topic = LaunchConfiguration('camera_info_input_topic')
 
     # TensorRT parameters
     model_file_path = LaunchConfiguration('model_file_path')
@@ -85,6 +103,8 @@ def generate_launch_description():
     # YOLOv8 Decoder parameters
     confidence_threshold = LaunchConfiguration('confidence_threshold')
     nms_threshold = LaunchConfiguration('nms_threshold')
+    num_classes = LaunchConfiguration('num_classes')
+    out_dim = LaunchConfiguration('out_dims')
 
     encoder_dir = get_package_share_directory('isaac_ros_dnn_image_encoder')
     yolov8_encoder_launch = IncludeLaunchDescription(
@@ -101,8 +121,8 @@ def generate_launch_description():
             'attach_to_shared_component_container': 'True',
             'component_container_name': 'tensor_rt_container',
             'dnn_image_encoder_namespace': 'yolov8_encoder',
-            'image_input_topic': '/image_raw',
-            'camera_info_input_topic': '/camera_info',
+            'image_input_topic': image_input_topic,
+            'camera_info_input_topic': camera_info_input_topic,
             'tensor_output_topic': '/tensor_pub',
         }.items(),
     )
@@ -130,6 +150,8 @@ def generate_launch_description():
         parameters=[{
             'confidence_threshold': confidence_threshold,
             'nms_threshold': nms_threshold,
+            'num_classes': num_classes,
+            'out_dim': out_dim,
         }]
     )
 
