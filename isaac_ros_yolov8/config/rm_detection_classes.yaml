@@ -1,0 +1,12 @@
+detection_classes:
+  0: "blue-base"
+  1: "blue-hero"
+  2: "blue-sentry"
+  3: "blue-standard-3"
+  4: "blue-standard-4"
+  5: "red-base"
+  6: "red-hero"
+  7: "red-sentry"
+  8: "red-standard-3"
+  9: "red-standard-4"
+  10: "purple-base"

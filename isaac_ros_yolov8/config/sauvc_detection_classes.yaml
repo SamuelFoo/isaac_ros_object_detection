@@ -1,0 +1,8 @@
+detection_classes:
+  0: "gate"
+  1: "orange-flare"
+  2: "blue-flare"
+  3: "red-flare"
+  4: "yellow-flare"
+  5: "blue-drum"
+  6: "red-drum"

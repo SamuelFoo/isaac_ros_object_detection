@@ -1,0 +1,12 @@
+/**:
+  ros__parameters:
+    model_file_path: "/workspaces/isaac_ros-dev/src/isaac_ros_object_detection/isaac_ros_yolov8/weights/front_yolov8n_070424_1.onnx"
+    engine_file_path: "/workspaces/isaac_ros-dev/src/isaac_ros_object_detection/isaac_ros_yolov8/weights/front_yolov8n_070424_1.plan"
+    network_image_width: "640"
+    network_image_height: "480"
+    input_image_width: "640"
+    input_image_height: "480"
+    image_input_topic: "/auv4/front_cam/color/image"
+    camera_info_input_topic: "/auv4/front_cam/color/camera_info"
+    num_classes: "7"
+    out_dim: "6300"
