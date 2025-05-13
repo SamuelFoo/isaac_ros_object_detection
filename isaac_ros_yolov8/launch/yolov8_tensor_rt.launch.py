@@ -75,7 +75,7 @@ def generate_launch_description():
             default_value='80',
             description='Number of classes for YOLOv8 model'),
         DeclareLaunchArgument(
-            'out_dims',
+            'out_dim',
             default_value='8400',
             description='Output dimensions for YOLOv8 model'),
     ]
@@ -104,7 +104,7 @@ def generate_launch_description():
     confidence_threshold = LaunchConfiguration('confidence_threshold')
     nms_threshold = LaunchConfiguration('nms_threshold')
     num_classes = LaunchConfiguration('num_classes')
-    out_dim = LaunchConfiguration('out_dims')
+    out_dim = LaunchConfiguration('out_dim')
 
     encoder_dir = get_package_share_directory('isaac_ros_dnn_image_encoder')
     yolov8_encoder_launch = IncludeLaunchDescription(
